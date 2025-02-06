@@ -88,6 +88,8 @@ class MapLocationPicker extends StatefulWidget {
   /// On Next Page callback
   final Function(GeocodingResult?)? onNext;
 
+  final Function(LatLng?)? onLocationPicked;
+
   /// When tap on map decode address callback function
   final Function(GeocodingResult?)? onDecodeAddress;
 
@@ -465,6 +467,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
               ),
               onTap: (LatLng position) async {
                 _initialPosition = position;
+                widget.onLocationPicked?.call(position);
                 final controller = await _controller.future;
                 controller.animateCamera(
                   CameraUpdate.newCameraPosition(cameraPosition()),
