@@ -337,6 +337,7 @@ class MapLocationPicker extends StatefulWidget {
     this.getLocation,
     this.onSuggestionSelected,
     this.onNext,
+    this.onLocationPicked,
     this.currentLatLng = const LatLng(28.8993468, 76.6250249),
     this.hideBackButton = false,
     this.popOnNextButtonTaped = false,
